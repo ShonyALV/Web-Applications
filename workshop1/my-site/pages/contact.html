@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contact</title>
+</head>
+<body>
+    <header>
+        <h1>Contact Form</h1>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="research.html">Research</a>
+            <a href="clubs.html">Leadership Experience</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <form>
+            <!-- Name -->
+            <label for="name">Full Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
+
+            <!-- Email -->
+            <label for="email">Email Address:</label><br>
+            <input type="email" id="email" name="email" placeholder="Enter your email"><br><br>
+
+            <!-- Date of Birth -->
+            <label for="dob">Date of Birth:</label><br>
+            <input type="date" id="dob" name="dob"><br><br>
+
+            <!-- Degree Program -->
+            <label for="program">Degree Program:</label><br>
+            <input type="text" id="program" name="program" placeholder="Enter your degree program"><br><br>
+
+            <!-- Semester -->
+            <label for="semester">Semester:</label><br>
+            <input type="number" id="semester" name="semester" min="1" placeholder="Enter your semester"><br><br>
+
+            <!-- Reason for Contact -->
+            <label for="reason">Reason for Contact:</label><br>
+            <select id="reason" name="reason">
+                <option value="">--Select a reason--</option>
+                <option value="academic">Academic Inquiry</option>
+                <option value="technical">Technical Support</option>
+                <option value="personal">Personal Request</option>
+                <option value="other">Other</option>
+            </select><br><br>
+
+            <!-- Message -->
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" cols="40" placeholder="Write your message here"></textarea><br><br>
+
+            <!-- Acceptance Checkbox -->
+            <input type="checkbox" id="accept" name="accept">
+            <label for="accept">I accept the terms and conditions</label><br><br>
+
+            <!-- Submit Button -->
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Jhony – Contact Page</p>
+    </footer>
+</body>
+</html>
