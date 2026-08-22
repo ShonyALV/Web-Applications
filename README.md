@@ -1,8 +1,8 @@
-# Web-Apps - Taller 1
+# Web-Apps - Workshop 1
 
-Repositorio de aplicaciones web desarrolladas en los talleres.
+Repository of workshops developed in the Web Applications course.
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 Web-Apps/
@@ -21,28 +21,21 @@ Web-Apps/
 
 ## 📋 Workshop 1 - My Site
 
-Un sitio web multipágina que presenta información sobre clubs, contacto, cursos, investigación y horarios.
+A multi-page website presenting information about my Student Life.
 
-### Contenido
+### Content
 
-- **`index.html`** - Página principal del sitio
-- **`images/`** - Carpeta para almacenar imágenes y recursos visuales
-- **`pages/`** - Subcarpeta con páginas adicionales:
-  - `clubs.html` - Información sobre clubs
-  - `contact.html` - Página de contacto
-  - `courses.html` - Cursos disponibles
-  - `research.html` - Investigación
-  - `schedule.html` - Horarios
+- **`index.html`** - Main page of the site
+- **`images/`** - Folder for storing images and visual resources
+- **`pages/`** - Subfolder with additional pages:
+  - `clubs.html` - Information about clubs I have been part of
+  - `contact.html` - Contact page (form)
+  - `courses.html` - Currently enrolled courses
+  - `research.html` - Current research
+  - `schedule.html` - Class Schedule
 
-### Cómo usar
+### How to use
 
-1. Navega a la carpeta `workshop1/my-site/`
-2. Abre `index.html` en tu navegador web
-3. Usa el menú de navegación para acceder a las diferentes páginas
-<!-- 
-## 🚀 Próximos pasos
-
-- Añadir estilos CSS
-- Mejorar la interactividad con JavaScript
-- Optimizar las imágenes
-- Hacer el sitio responsive -->
+1. Navigate to the `workshop1/my-site/` folder
+2. Open `index.html` in your web browser
+3. Use the navigation menu to access the different pages
