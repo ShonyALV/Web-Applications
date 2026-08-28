@@ -1,0 +1,329 @@
+/* ============================================================
+   COMPONENTS.CSS
+   Piezas reutilizables construidas sobre los tokens de base.css:
+   hero/about, chips, cards (timeline / cursos / research),
+   formulario, tabla de horario y el divisor de firma (onda EEG).
+
+   Se enlaza (linked) igual que base.css, DESPUÉS de él en el HTML.
+   ============================================================ */
+
+/* ============================================================
+   FIRMA DEL SITIO: divisor tipo onda (EEG)
+   Reemplaza los <hr> que ya existen en courses.html, clubs.html.
+   La idea: Jhony investiga señales EEG, así que hasta el detalle
+   decorativo del sitio hace referencia a eso, en vez de ser un
+   <hr> genérico.
+   ============================================================ */
+hr {
+  border: none;
+  height: 14px;
+  margin: var(--space-lg) 0;
+  opacity: 0.55;
+  background-repeat: repeat-x;
+  background-position: center;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14'%3E%3Cpath d='M0 7 Q5 1 10 7 T20 7 T30 7 T40 7' stroke='%236ee7a8' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+}
+
+/* --- Etiqueta pequeña tipo "dato" usada antes de un título --- */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: var(--space-xs);
+}
+
+/* Título de sección con acento */
+.section-title {
+  border-left: 3px solid var(--signal);
+  padding-left: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+/* ============================================================
+   HERO / ABOUT ME (index.html)
+   ============================================================ */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  align-items: center;
+  padding: var(--space-lg) 0;
+}
+
+.hero__photo {
+  flex-shrink: 0;
+}
+
+.hero__photo img {
+  width: 180px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--signal-dim);
+  box-shadow: 0 0 0 6px var(--signal-soft);
+}
+
+.hero__text {
+  flex: 1 1 320px;
+}
+
+/* ============================================================
+   CHIPS (Academic Interests)
+   ============================================================ */
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  list-style: none;
+  padding: 0;
+  margin: var(--space-sm) 0 0 0;
+}
+
+.chip {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--signal);
+  background-color: var(--signal-soft);
+  border: 1px solid var(--signal-dim);
+  border-radius: var(--radius-full);
+  padding: 0.35rem 0.9rem;
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.chip:hover {
+  background-color: var(--signal-dim);
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   QUOTE CARD (My Student Life, index.html)
+   ============================================================ */
+.quote-card {
+  background-color: var(--bg-panel);
+  border-left: 3px solid var(--signal);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+}
+
+.quote-card footer {
+  margin-top: var(--space-sm);
+  color: var(--ink-dim);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+/* ============================================================
+   CARD BASE (compartida por cursos, research y clubs)
+   ============================================================ */
+.card {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.card:hover {
+  border-color: var(--line-strong);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.card h3 {
+  color: var(--signal);
+}
+
+/* Borde izquierdo verde por defecto para las cards de research.html.
+   El proyecto de EEG lo sobreescribe puntualmente con un inline style
+   dorado (ver research.html) — así el inline demuestra su uso real:
+   una excepción sobre una regla que ya existe en el CSS compartido. */
+.research-card {
+  border-left: 3px solid var(--signal-dim);
+}
+
+/* Dos columnas internas: "Main Topics" vs "What I Expect to Learn" (courses.html) */
+.card__columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+}
+
+/* ============================================================
+   TIMELINE (clubs.html) — el orden cronológico SÍ es información,
+   por eso aquí sí tiene sentido un tratamiento tipo línea de tiempo.
+   ============================================================ */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.timeline-item {
+  position: relative;
+  background-color: var(--bg-panel);
+  border-left: 3px solid var(--signal-dim);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  padding-left: var(--space-lg);
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: var(--space-md);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--signal);
+  box-shadow: 0 0 0 4px var(--signal-soft);
+}
+
+.timeline-item img {
+  width: 120px;
+  margin-bottom: var(--space-sm);
+  border-radius: var(--radius-sm);
+}
+
+.timeline-item .role {
+  color: var(--signal);
+  font-weight: 600;
+}
+
+/* ============================================================
+   FORMULARIO (contact.html)
+   ============================================================ */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  max-width: 480px;
+  background-color: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+
+.contact-form label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ink-dim);
+  margin-bottom: 0.4rem;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  background-color: var(--bg-void);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.6rem 0.75rem;
+  transition: border-color var(--transition);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--ink-dim);
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: var(--signal);
+}
+
+.contact-form .checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-form .checkbox-row label {
+  margin-bottom: 0;
+}
+
+/* Botón de envío */
+.btn {
+  align-self: flex-start;
+  background-color: transparent;
+  color: var(--signal);
+  border: 1px solid var(--signal);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.6rem 1.6rem;
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.btn:hover {
+  background-color: var(--signal);
+  color: var(--bg-void);
+}
+
+/* ============================================================
+   TABLA DE HORARIO (schedule.html)
+   ============================================================ */
+.table-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  min-width: 640px;
+}
+
+thead th {
+  background-color: var(--bg-raised);
+  color: var(--signal);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--line-strong);
+  position: sticky;
+  top: 0;
+}
+
+tbody td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+tbody td:first-child {
+  font-family: var(--font-mono);
+  color: var(--ink-dim);
+  white-space: nowrap;
+}
+
+/* Zebra striping */
+tbody tr:nth-child(even) {
+  background-color: var(--bg-panel);
+}
+
+tbody td:not(:first-child):not(:empty) {
+  background-color: var(--signal-soft);
+}
