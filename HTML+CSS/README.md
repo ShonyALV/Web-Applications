@@ -20,7 +20,7 @@ The project demonstrates modern web development practices with a separation of c
 ## Project Structure
 
 ```text
-with css/
+HTML+CSS/
 ├── README.md
 └── workshop2/
     └── my-site/

@@ -18,7 +18,7 @@ The website includes a home page and several additional sections that provide de
 ## Project Structure
 
 ```text
-html/
+HTML/
 ├── README.md
 └── workshop1/
     └── my-site/

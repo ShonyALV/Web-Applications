@@ -10,7 +10,7 @@ Repository of workshops developed in the Web Applications course.
 ```
 Web-Applications/
 ├── README.md
-├── html/
+├── HTML/
 │   ├── README.md
 │   └── workshop1/
 │       └── my-site/
@@ -22,7 +22,7 @@ Web-Applications/
 │               ├── courses.html
 │               ├── research.html
 │               └── schedule.html
-└── with css/
+└── HTML+CSS/
     ├── README.md
     └── workshop2/
         └── my-site/
