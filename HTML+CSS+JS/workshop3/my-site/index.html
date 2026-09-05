@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My University Website</title>
+
+    <!-- LINKED: hojas de estilo externas, compartidas por todo el sitio -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+
+    <!-- GLOBAL: estilo propio de ESTA página (home).
+         Un glow radial detrás de la foto del hero no tiene sentido
+         en ninguna otra página, así que no vale la pena ponerlo
+         en components.css: vive aquí, en un <style> del <head>. -->
+    <style>
+        #about-me {
+            position: relative;
+        }
+
+        #about-me::before {
+            content: "";
+            position: absolute;
+            top: -40px;
+            left: -40px;
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(circle, var(--signal-soft) 0%, transparent 70%);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme toggle: fijo en la esquina inferior izquierda, presente en las 6 páginas -->
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode">🌙</button>
+
+    <header>
+        <h1>My University Website</h1>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="pages/courses.html">Courses</a>
+            <a href="pages/schedule.html">Schedule</a>
+            <a href="pages/research.html">Research</a>
+            <a href="pages/clubs.html">Leadership Experience</a>
+            <a href="pages/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about-me">
+            <div class="hero">
+                <div class="hero__photo">
+                    <img src="images/profile.jpg" alt="My photo">
+                </div>
+                <div class="hero__text">
+                    <p class="eyebrow">Computer Science Engineering — 8th Semester</p>
+                    <h2>About Me</h2>
+                    <p><strong>Name:</strong> Jhony Peñaherrera</p>
+                    <p><strong>Degree Program:</strong> Computer Science Engineering</p>
+                    <p><strong>Semester:</strong> 8th Semester</p>
+                    <p>
+                        I am a university student passionate about neuronal network, data science, neuroscience and coupled functions.
+                        I enjoy learning new technologies and sharing knowledge with others.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="interests">
+            <h2 class="section-title">Academic Interests</h2>
+            <ul class="chip-list">
+                <li class="chip">Neuronal Network</li>
+                <li class="chip">Artificial Intelligence</li>
+                <li class="chip">Dynamic Systems</li>
+                <li class="chip">Data Visualization</li>
+                <li class="chip">Web Applications</li>
+            </ul>
+        </section>
+
+        <article id="student-life" class="quote-card">
+            <header>
+                <h2>My Student Life</h2>
+            </header>
+
+            <img src="images/university.jpg" alt="University campus">
+            
+            <p>
+                Being part of Yachay Tech has allowed me to grow academically and personally.
+                I have participated in student clubs, organized events, and collaborated with peers
+                to explore new areas of computer science.
+            </p>
+            <footer>
+                <p>Written by Jhony, August 2026</p>
+            </footer>
+        </article>
+
+        <!-- Image Gallery: fotos/logos de la universidad y los clubes en los que participo.
+             Cada imagen abre en un modal al hacer click (jQuery). -->
+        <section id="gallery">
+            <h2 class="section-title">Snapshots</h2>
+            <p>A quick look at my university spots.</p>
+
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="images/university.jpg" alt="Yachay Tech University campus">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/bloques_yt.jpg" alt="Yachay Tech University blocks">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/multis_yt.jpg" alt="Yachay Tech University multis">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/volcan_yt.jpg" alt="Imbabura volcano view from Yachay Tech University">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/senescyt_yt.jpg" alt="Senescyt building at Yachay Tech University">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal reutilizado por la galería para mostrar la imagen en grande -->
+    <div id="image-modal" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="modal-close" role="button" aria-label="Close image">&times;</span>
+            <img src="" alt="">
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Jhony – Computer Science Student at Yachay Tech</p>
+        <p>Contact: <a href="mailto:jhony.penaherrera@yachaytech.edu.ec">jhony.penaherrera@yachaytech.edu.ec</a></p>
+        <p>Follow me on <a href="https://www.linkedin.com/in/jhony-penaherrera">LinkedIn</a></p>
+    </footer>
+
+    <!-- LINKED: jQuery (última versión) + lógica propia del sitio -->
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
