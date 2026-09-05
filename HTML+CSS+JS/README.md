@@ -36,6 +36,10 @@ HTML+CSS+JS/
         │   ├── Yachay_Times.png
         │   ├── ccc.png
         │   ├── cs.png
+        │   ├── bloques_yt.jpg
+        │   ├── multis_yt.jpg
+        │   ├── senescyt_yt.jpg
+        │   ├── volcan_yt.jpg
         │   └── RussianClub.png
         └── pages/
             ├── clubs.html
