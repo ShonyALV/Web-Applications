@@ -1,53 +1,22 @@
-/* ============================================================
-   SCRIPT.JS — Workshop 3 (Web Applications)
-   Lógica jQuery para interactividad del sitio.
-
-   Se enlaza (linked), igual que los CSS, DESPUÉS de jQuery, en
-   TODAS las páginas (index.html y pages/*.html), porque el
-   theme toggle debe funcionar en todo el sitio:
-     <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
-     <script src="script.js"></script>          (index.html)
-     <script src="../script.js"></script>       (pages/*.html)
-
-   Cada bloque se activa solo si encuentra sus elementos en el DOM,
-   así este mismo archivo puede convivir en distintas páginas sin
-   que unas rompan a otras.
-   ============================================================ */
-
 $(document).ready(function () {
 
-  /* ============================================================
-     1) THEME TOGGLE — botón flotante fijo (todas las páginas)
-     Cambia entre modo oscuro (por defecto) y modo claro agregando
-     la clase "light-mode" a <body> (los estilos viven en base.css
-     como variables CSS, así que un solo cambio de clase reajusta
-     TODO el sitio: header/nav, footer, cards, formulario, etc.).
-
-     Se guarda la preferencia en localStorage para que se mantenga
-     al navegar entre las distintas páginas del sitio.
-     ============================================================ */
-  const THEME_KEY = 'site-theme';
   const $body = $('body');
-  const $themeToggle = $('#theme-toggle');
+  const $bgToggle = $('#theme-toggle'); // se reutiliza el mismo botón ya existente
 
-  function applyTheme(theme) {
-    if (theme === 'light') {
-      $body.addClass('light-mode');
-      $themeToggle.text('☀️').attr('aria-label', 'Switch to dark mode');
-    } else {
-      $body.removeClass('light-mode');
-      $themeToggle.text('🌙').attr('aria-label', 'Switch to light mode');
-    }
+  function randomBackgroundColor() {
+    const hue = Math.floor(Math.random() * 360);
+    const saturation = 40 + Math.floor(Math.random() * 30); // 40% - 70%
+    const lightness = 8 + Math.floor(Math.random() * 15);   // 8% - 23% (oscuro)
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
   }
 
-  if ($themeToggle.length) {
-    const savedTheme = localStorage.getItem(THEME_KEY) || 'dark';
-    applyTheme(savedTheme);
+  if ($bgToggle.length) {
+    $bgToggle
+      .text('🎨')
+      .attr('aria-label', 'Change background color');
 
-    $themeToggle.on('click', function () {
-      const nextTheme = $body.hasClass('light-mode') ? 'dark' : 'light';
-      localStorage.setItem(THEME_KEY, nextTheme);
-      applyTheme(nextTheme);
+    $bgToggle.on('click', function () {
+      $body.css('background-color', randomBackgroundColor());
     });
   }
 
@@ -115,7 +84,7 @@ $(document).ready(function () {
       const name = $name.val().trim();
       const email = $email.val().trim();
       const message = $message.val().trim();
-      const semester = number($semester.val());
+      const semester = Number($semester.val()); // FIX: era number(...) (minúscula) y rompía el submit
 
       // Nombre: obligatorio, mínimo 2 caracteres
       if (name.length < 2) {
